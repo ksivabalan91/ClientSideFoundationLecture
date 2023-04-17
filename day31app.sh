@@ -1,6 +1,8 @@
-ng new day-31-lecture
+#!/bin/bash
+
 # dont add angular routing
 # use CSS
+ng new day-31-lecture
 
 # generate components directory and add a component
 ng generate component components/my-component
