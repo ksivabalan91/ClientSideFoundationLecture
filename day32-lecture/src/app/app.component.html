@@ -1,0 +1,22 @@
+<h1>Delivery Order</h1>
+<app-delivery (onNewDeliveryOrder)="processNewOrder($event)"></app-delivery>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Delivery Date</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of orders">
+        <td>{{o.name | titlecase}}|</td>
+        <td>{{o.address}}|</td>
+        <td>{{o.deliveryDate}}|</td>
+        <td>{{o.priority}}|</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
