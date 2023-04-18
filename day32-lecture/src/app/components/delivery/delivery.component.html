@@ -2,11 +2,22 @@
   <table>
     <tr>
       <td>Name:</td>
-      <td><input type="text" size="30" formControlName="name"></td>
+      <td>
+        <input type="text" size="30" formControlName="name">
+        <div *ngIf="hasError('name')">
+          <span>Please enter your name</span>
+        </div>
+
+      </td>
     </tr>
     <tr>
       <td>Address:</td>
-      <td><input type="text" size="30" formControlName="address"></td>
+      <td>
+        <input type="text" size="30" formControlName="address">
+        <div *ngIf="hasError('address')">
+          <span>Please enter your address</span>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>Email:</td>
@@ -43,8 +54,38 @@
     <tr>
       <td></td>
       <td>
-        <button>Place order</button>
+        <p>Invalid: {{ form.invalid }}, Valid: {{ form.valid}}</p>
+        <p>Pristine: {{ form.pristine }}, Dirty: {{ form.dirty}}</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="isFormValid">Place order</button>
+        <button type="button" (click)="addItem()">Add item</button>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="itemArray.length>0; else noItems">
+
+  </div>
+  <h2>Items</h2>
+  <table formArrayName="orderItems">
+    <tr *ngFor="let it of itemArray.controls; let i = index" [formGroupName]="i">
+      <td>
+        <input type="text" placeholder="Order" formControlName="item">
+      </td>
+      <td>
+        <input type="number" placeholder="Qty" formControlName="quantity">
+      </td>
+      <td>
+        <button (click)="deleteItem(i)">X</button>
       </td>
     </tr>
   </table>
 </form>
+
+<ng-template #noItems>
+  <h2>Your order has no item</h2>
+</ng-template>
