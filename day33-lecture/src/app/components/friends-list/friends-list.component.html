@@ -1,0 +1,17 @@
+<h2>Friends List</h2>
+
+<div *ngIf="friendsList.length>0;else lonely">
+  <div *ngFor="let f of friendsList; let i = index" class="highlight" (click)="selection(f.name)">
+    <table border="1">
+      <tr>
+        <td>{{ f.name | titlecase }}</td>
+        <td>{{ f.email }}</td>
+        <td>{{ f.phone }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #lonely>
+  <h2>Make some friends</h2>
+</ng-template>

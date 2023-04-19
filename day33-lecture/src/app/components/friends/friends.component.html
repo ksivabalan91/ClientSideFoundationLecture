@@ -1,0 +1,23 @@
+<h1>Friend</h1>
+<form action="" [formGroup]="form" (ngSubmit)="processForm()">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" formControlName="email"></td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td><input type="tel" formControlName="phone"></td>
+    </tr>
+    <tr>
+      <td>
+        <!-- <button type="submit" [disabled]="form.invalid">add</button> -->
+        <ng-content></ng-content>
+      </td>
+    </tr>
+  </table>
+</form>

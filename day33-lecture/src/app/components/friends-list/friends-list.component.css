@@ -1,0 +1,14 @@
+.highlight{
+  font-size: 1.3em;
+  padding-left: lvw;
+  background-color: inherit;
+  text-shadow: inherit;
+  transition-property: background-color text-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
+}
+
+.highlight:hover{
+  background-color: lightskyblue;
+  text-shadow: 3px 3px 3px gray;
+}
