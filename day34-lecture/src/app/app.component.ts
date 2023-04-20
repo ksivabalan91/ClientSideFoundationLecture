@@ -6,7 +6,7 @@ import { Observable, Subscription, firstValueFrom, lastValueFrom, map } from 'rx
 
 const WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
-const WEATHER_API_KEY = '112bfba7550020c714a8208e3c6d3f61'
+const WEATHER_API_KEY = 'YOUR_API_KEY_HERE'
 
 @Component({
   selector: 'app-root',
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy{
         console.error("error: ", err)
       })
   }
-  
+
   getWeatherWithPromise2() {
 
     // converts the first value of the observable
