@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Weather } from './model';
-import { Observable, Subscription, firstValueFrom, map } from 'rxjs';
+import { Observable, Subscription, firstValueFrom, lastValueFrom, map } from 'rxjs';
 
 const WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
@@ -17,11 +17,12 @@ export class AppComponent implements OnInit, OnDestroy{
   form!: FormGroup
   weather$!: Subscription
   weatherObs$!: Observable<Weather[]>
+  weatherProm$!: Promise<Weather[]>
 
   result: Weather[] =[]
   // result!: any
-
   constructor(private fb:FormBuilder, private http: HttpClient){}
+
   ngOnDestroy(): void {
     this.weather$.unsubscribe()
   }
@@ -64,6 +65,16 @@ export class AppComponent implements OnInit, OnDestroy{
       }).catch( err =>{
         console.error("error: ", err)
       })
+  }
+  
+  getWeatherWithPromise2() {
+
+    // converts the first value of the observable
+    // into a promise, lastValueFrom()
+    this.weatherProm$ = lastValueFrom(
+      // returns an observable
+      this.getWeather()
+    )
   }
 
   getWeather(){

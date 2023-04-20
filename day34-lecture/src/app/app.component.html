@@ -7,8 +7,8 @@
   <title>Document</title>
 </head>
 <body>
-  <form [formGroup]="form" (ngSubmit)="getWeather()">
-  <!-- <form [formGroup]="form" (ngSubmit)="getWeatherWithObservable()"> -->
+  <!-- <form [formGroup]="form" (ngSubmit)="getWeather()"> -->
+  <form [formGroup]="form" (ngSubmit)="getWeatherWithPromise2()">
     <label for="city">City Name</label>
     <input type="text" id="city" formControlName="city">
     <button type="submit" [disabled]="form.invalid">Get Weather</button>
@@ -34,7 +34,7 @@
         <!-- <tr *ngFor="let w of weatherProm$ | async"> -->
           <td>{{ w.main }} - {{w.description}}</td>
           <td>{{ w.temperature}}</td>
-          <td><img src="{{w.icon}}" alt=""></td>
+          <td><img src="https://openweathermap.org/img/wn/{{ w.icon }}@2x.png" alt=""></td>
         </tr>
       </tbody>
     </table>
