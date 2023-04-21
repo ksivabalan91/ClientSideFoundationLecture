@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Headlines, Search } from './model';
 import { Observable, map } from 'rxjs';
+import { NewsService } from './services/news.service';
 
 const HEADLINE_URL = 'https://newsapi.org/v2/top-headlines'
 const SOURCES_URL = 'https://newsapi.org/v2/top-headlines/sources'
@@ -23,7 +24,9 @@ export class AppComponent implements OnInit{
   result: Headlines[]=[]
   headlines$!: Observable<Headlines[]>
 
-  constructor(private fb:FormBuilder, private http: HttpClient){}
+  news$!: Promise<Headlines[]>
+
+  constructor(private fb:FormBuilder, private http: HttpClient, private newsSvc: NewsService){}
 
 
   COUNTRIES = [ 'ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn',
@@ -39,7 +42,11 @@ export class AppComponent implements OnInit{
 
   }
 
-
+  getNews(){
+    const country = this.form.value['country']
+    const category = this.form.value['category']
+    this.news$ = this.newsSvc.getNews(country,category)
+  }
 
   getHeadlineWithSubs(){
     this.getHeadline().subscribe({
