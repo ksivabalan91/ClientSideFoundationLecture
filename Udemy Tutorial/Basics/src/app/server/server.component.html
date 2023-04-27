@@ -1,0 +1,28 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<div class="progress-title">
+  
+  <h5>{{ id }}</h5>  
+  
+  <div class="progress" style="width: auto; height: 20px;">
+    <div [ngStyle]="{background:barColor()}" class="progress-bar" role="progressbar" [style.width]="percentage+'%'">
+       {{ percentage }}%
+      </div>
+  </div>
+
+  <input type="range" min=0 max=100 step=0.5 style="width: 100%;" (input)="slider($event)">
+
+  <div>      
+      <button [disabled]="!sliderChanged" class="btn btn-warning" style="align-items: end;" (click)="setValue()"> Set load</button>
+      {{ sliderValue }}%
+  </div>
+  <br>
+  
+<!-- //! DIRECTIVE ngStyle, which is property binded with [], you can use camel or normal notation -->
+<!-- //? 'background-color' OR backgroundColor -->
+  <div [ngStyle]="{color: getColor()}" >
+  <button [ngClass]="{'btn btn-primary':true}" (click)="switchOnOff()"> {{ startStop() }}</button
+    >Server is {{ getServerStatus() }} 
+  </div>
+  <br>
+</div>
