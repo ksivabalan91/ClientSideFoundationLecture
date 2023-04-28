@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xs-12">
+      <p>Add new Servers or blueprints!</p>
+      
+      <!-- ! Using local references, local meaning only in this HTML template #serverNameInput -->
+      <label>Server Name</label>
+      <input type="text" class="form-control" #serverNameInput>
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
+      
+      <!-- todo Using local references again to get native element content, which can be access without an event -->
+      <label>Server Content</label>
+      <input type="text" class="form-control" #serverContentInput>
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+      <br>
+      <!-- ! you can pass in the entire element here, you can also get values of the element using .value -->
+      <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">Add Server</button>
+      <!-- <button class="btn btn-primary" (click)="onAddServer()">Add Server</button> -->
+      
+      <!-- todo you can pass in the child without an event  -->
+      <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+      <!-- <button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button> -->
+    </div>
+  </div>

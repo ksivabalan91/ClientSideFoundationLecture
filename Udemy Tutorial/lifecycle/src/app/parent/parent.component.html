@@ -1,0 +1,11 @@
+<div class="container">
+    <h5>Parent component</h5>
+    <div class="container border">
+        <button (click)="toggle()" class="btn btn-primary">Toggle Child</button>
+        <br>
+        <input type="text" [(ngModel)]="parentVar">
+        <app-child *ngIf="switched" [childVar]="parentVar">
+            <h2 #projectedContent>ngcontent</h2>
+        </app-child>
+    </div>
+</div>
