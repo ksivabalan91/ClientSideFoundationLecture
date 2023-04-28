@@ -1,0 +1,19 @@
+<h1> To Do Tasks</h1>
+<app-todoform (onSave)="save($event)"></app-todoform>
+<div>
+  <table border="1" *ngFor="let i of userTasks">
+    <thead>
+      <tr>
+        <th>{{i.name | titlecase}}|</th>
+        <th>{{i.dueDate | date}}|</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let j of i.tasks">
+        <td>{{ j.taskName }}</td>
+        <td>{{ j.priority }}</td>
+      </tr>
+    </tbody>
+    <br><br>
+  </table>
+</div>

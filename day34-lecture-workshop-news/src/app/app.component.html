@@ -1,0 +1,38 @@
+<h2>Headline News</h2>
+
+<form [formGroup]="form" (ngSubmit)="getHeadlineWithSubs()">
+  <table>
+      <tr>
+        <td>Country</td>
+        <td>
+          <select name="countries" id="countries" formControlName="country">
+            <option *ngFor="let c of COUNTRIES" [value]="c">{{ c }}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>
+          <select name="category" id="category" formControlName="category">
+            <option *ngFor="let s of CATEGORIES" [value]="s">{{s | titlecase}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button type="submit" [disabled]="form.invalid">Search</button></td>
+      </tr>
+  </table>
+  <table *ngIf="result.length>0; else nodata" border="1">
+    <div *ngFor="let r of result">
+      <tr>
+        <p><a [href]="r.url">{{ r.title }}</a></p>
+        <p>{{ r.description }}</p>
+      </tr>
+    </div>
+  </table>
+
+
+</form>
+
+<ng-template #nodata>No Data</ng-template>
