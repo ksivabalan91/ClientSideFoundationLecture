@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3> ngStyle and ngClass are attribute directives</h3>
+      <p [ngStyle]="{backgroundColor:'lightgreen'}">this was styled using ngStyle directives</p>
+      <p [ngClass]="{'custom-class':true}">this was styled using ngClass directives</p>
+    </div>
+    <div class="col-md-4">
+      <h3> Using custom directives</h3>
+      <p>First generate a directive using the following command</p>
+      <p>ng g d dir-name</p>
+      
+      <p appCustom1 [defaultColor] ="'lightblue'" [fontColor]="'gray'" [changedDefault] ="'darkblue'" [changedFont]="'white'"> 
+        Using custom1 directive with overrides
+      </p>
+      <p appCustom1> Using custom1 directive defaults</p>
+    </div>
+    <div class="col-md-4">
+      <h3> Using custom directives</h3>
+      <p>First generate a directive using the following command</p>
+      <p>ng g d dir-name</p>
+      <p appCustom2> Using custom2 directive</p>
+    </div>
+  </div>
+</div>

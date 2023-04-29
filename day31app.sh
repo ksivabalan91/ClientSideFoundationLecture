@@ -10,6 +10,9 @@ ng g c components/my-component
 # skip test will not create the test file
 ng g c components/my-component --skip-tests --flat
 
+# creative custom directives
+ng g d dir-name
+
 # install bootstrap
 npm install --save bootstrap
 
