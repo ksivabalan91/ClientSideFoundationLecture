@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'directive-deepdive';
+
+  isSwitch:boolean = true;
+  isCustomSwitch:boolean = true;
+
+  switch(){
+    this.isSwitch = !this.isSwitch;
+  }
+  
+  switchCustom(){
+    this.isCustomSwitch = !this.isCustomSwitch;
+  }
 }

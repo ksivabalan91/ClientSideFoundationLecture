@@ -5,6 +5,7 @@
     <div class="col-md-12" [ngSwitch]="page">
       <app-recipes *ngSwitchCase="'recipe'"></app-recipes>
       <app-shopping-list *ngSwitchCase="'shopping-list'"></app-shopping-list>      
+      <h3 *ngSwitchDefault> nothing is selected</h3>
     </div>
   </div>
 </div>

@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <h3 style="font-weight: bold; font-style: italic;">Atrribute Directives</h3>
+    </div>
     <div class="col-md-4">
-      <h3> ngStyle and ngClass are attribute directives</h3>
+      <h5> ngStyle and ngClass are attribute directives</h5>
       <p [ngStyle]="{backgroundColor:'lightgreen'}">this was styled using ngStyle directives</p>
       <p [ngClass]="{'custom-class':true}">this was styled using ngClass directives</p>
     </div>
     <div class="col-md-4">
-      <h3> Using custom directives</h3>
+      <h5> Using custom directives</h5>
       <p>First generate a directive using the following command</p>
       <p>ng g d dir-name</p>
       
@@ -16,10 +19,56 @@
       <p appCustom1> Using custom1 directive defaults</p>
     </div>
     <div class="col-md-4">
-      <h3> Using custom directives</h3>
+      <h5> Using custom directives</h5>
       <p>First generate a directive using the following command</p>
       <p>ng g d dir-name</p>
       <p appCustom2> Using custom2 directive</p>
     </div>
   </div>
+
+  <!-- ! Regular ngIf directive -->
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 style="font-weight: bold; font-style: italic;">Custom Structural Directives</h3>
+    </div>
+    <div class="col-sm-4"><h5>regular *ngIf directive</h5></div>
+    <div class="col-sm-2">
+      <button class="btn btn-primary" (click)="switch()"> Click me! </button>
+    </div>
+  </div>
+  <div class="row" *ngIf="isSwitch">
+    <div class="col-sm-12">
+      <h1>IF</h1>
+    </div>
+  </div>
+  <ng-template [ngIf]="!isSwitch">
+    <div class="row" >
+      <div class="col-sm-12">
+        <h1>UNLESS</h1>
+      </div>
+    </div>
+  </ng-template>
+  
+  <!-- ! Custom unless directive -->
+  <div class="row">
+    <div class="col-sm-4" style="color:brown"><h5>CUSTOM *ngIf directive</h5></div>
+    <div class="col-sm-2">
+      <button class="btn btn-primary" (click)="switchCustom()"> Click me! </button>
+    </div>
+  </div>
+  <div class="row" *appUnless="isCustomSwitch">
+    <div class="col-sm-12">
+      <h1>custom IF</h1>
+    </div>
+  </div>
+  <ng-template [appUnless]="!isCustomSwitch">
+    <div class="row" >
+      <div class="col-sm-12">
+        <h1>custom UNLESS</h1>
+      </div>
+    </div>
+  </ng-template>
+
+
+
 </div>
