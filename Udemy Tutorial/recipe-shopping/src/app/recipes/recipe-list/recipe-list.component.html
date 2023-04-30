@@ -3,6 +3,6 @@
     <button class="btn btn-sucess">New Recipe</button>
   </div>
   <div class="col-xs-12">        
-    <app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl" (recipeSelect)="onRecipeSelected(recipeEl)"></app-recipe-item>
+    <app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl"></app-recipe-item>
   </div>
 </div>
